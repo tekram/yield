@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  pseudo_mrn: MyString
+  accession_number: MyString
+  dob: 2013-08-29
+  department: MyString
+  exam_code: MyString
+  exam_date: 
+  requesting_md_id: 1
+  attending_id: 1
+  report: MyText
+  impression: MyText
+  positivity: 1
+  certainty: 1
+
+two:
+  pseudo_mrn: MyString
+  accession_number: MyString
+  dob: 2013-08-29
+  department: MyString
+  exam_code: MyString
+  exam_date: 
+  requesting_md_id: 1
+  attending_id: 1
+  report: MyText
+  impression: MyText
+  positivity: 1
+  certainty: 1

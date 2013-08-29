@@ -1,0 +1,80 @@
+<%= form_for @report, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :pseudo_mrn, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pseudo_mrn, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :accession_number, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :accession_number, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :dob, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :dob, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :department, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :department, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :exam_code, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :exam_code, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :exam_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :exam_date, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :requesting_md_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :requesting_md_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :attending_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :attending_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :report, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :report, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :impression, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :impression, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :positivity, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :positivity, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :certainty, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :certainty, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                reports_path, :class => 'btn' %>
+  </div>
+<% end %>

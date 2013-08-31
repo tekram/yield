@@ -5,7 +5,7 @@ class CreateReports < ActiveRecord::Migration
       t.string :accession_number
       t.date :dob
       t.string :department
-      t.string :exam_code
+      t.integer :exam_code_id
       t.datetime :exam_date
       t.integer :requesting_md_id
       t.integer :attending_id
@@ -13,6 +13,7 @@ class CreateReports < ActiveRecord::Migration
       t.text :impression
       t.integer :positivity
       t.integer :certainty
+	  t.integer :radiologist_id	
 
       t.timestamps
     end

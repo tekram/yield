@@ -1,4 +1,16 @@
 Yield::Application.routes.draw do
+  resources :radiologists
+
+
+  resources :exam_codes
+
+
+  resources :requesting_mds
+
+
+  resources :attendings
+
+
   resources :reports
 
 

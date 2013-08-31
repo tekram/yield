@@ -11,14 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130829163140) do
+ActiveRecord::Schema.define(:version => 20130830150301) do
+
+  create_table "attendings", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "exam_codes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "radiologists", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "reports", :force => true do |t|
     t.string   "pseudo_mrn"
     t.string   "accession_number"
     t.date     "dob"
     t.string   "department"
-    t.string   "exam_code"
+    t.integer  "exam_code_id"
     t.datetime "exam_date"
     t.integer  "requesting_md_id"
     t.integer  "attending_id"
@@ -26,8 +44,15 @@ ActiveRecord::Schema.define(:version => 20130829163140) do
     t.text     "impression"
     t.integer  "positivity"
     t.integer  "certainty"
+    t.integer  "radiologist_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+  end
+
+  create_table "requesting_mds", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

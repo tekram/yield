@@ -1,0 +1,23 @@
+<h1>Listing radiologists</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @radiologists.each do |radiologist| %>
+  <tr>
+    <td><%= radiologist.name %></td>
+    <td><%= link_to 'Show', radiologist %></td>
+    <td><%= link_to 'Edit', edit_radiologist_path(radiologist) %></td>
+    <td><%= link_to 'Destroy', radiologist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Radiologist', new_radiologist_path %>

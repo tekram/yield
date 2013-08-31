@@ -1,0 +1,21 @@
+<%= form_for(@radiologist) do |f| %>
+  <% if @radiologist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@radiologist.errors.count, "error") %> prohibited this radiologist from being saved:</h2>
+
+      <ul>
+      <% @radiologist.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

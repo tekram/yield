@@ -1,8 +1,8 @@
 class CreateReports < ActiveRecord::Migration
   def change
-    create_table :reports do |t|
+    create_table :reports do, :id => false |t|
       t.string :pseudo_mrn
-      t.string :accession_number
+      t.integer :accession_number
       t.date :dob
       t.string :department
       t.integer :exam_code_id

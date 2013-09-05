@@ -17,7 +17,7 @@
       <tr>
         <td><%= link_to requesting_md.name, requesting_md_path(requesting_md) %></td>
         <% ExamCode.all.each do |examcode| %>
-			<td> <%= requesting_md.positiveReportsByExamCode(examcode.id).length %></td>
+			<td> <%= Float(requesting_md.positiveReportsByExamCode(examcode.id).length)/Float(requesting_md.reports.where(:exam_code_id => examcode.id).length)*100 %>%</td>
 			<td> <%= requesting_md.reports.where(:exam_code_id => examcode.id).length %></td>
 		<% end %>
         <td><%=  %></td>

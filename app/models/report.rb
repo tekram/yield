@@ -10,6 +10,18 @@ class Report < ActiveRecord::Base
 	belongs_to :radiologist
 	belongs_to :attending
 	
+	def self.grade
+		Report.all.each{|report|
+			if report.impression.downcase.include?("no evidence of pulmonary embolism")
+				report.positivity = 0
+				report.save
+			else
+				report.positivity = 1
+				report.save
+			end
+		}
+	end
+	
 	def self.import()
 		CSV.foreach("ctpe.csv", {:col_sep => "|"}) do |row|
 			attending = Attending.find_or_create_by_name(:name => row[8])

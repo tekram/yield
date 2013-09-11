@@ -23,7 +23,7 @@ class Report < ActiveRecord::Base
 	end
 	
 	def self.import()
-		CSV.foreach("ctpe.csv", {:col_sep => "|"}) do |row|
+		CSV.foreach("ctpe.txt", {:col_sep => "|"}) do |row|
 			attending = Attending.find_or_create_by_name(:name => row[8])
 			requesting_md = RequestingMd.find_or_create_by_name(:name => row[7])
 			radiologist = Radiologist.find_or_create_by_name(:name => row[9])
@@ -31,7 +31,7 @@ class Report < ActiveRecord::Base
 			Report.create(:pseudo_mrn => row[0], :accession_number => row[1], :dob => Date.strptime(row[2], '%m/%d/%Y'),
 				:requesting_md_id => requesting_md.id, :attending_id => attending.id, :exam_code_id => exam_code.id,
 				:radiologist_id => radiologist.id, :impression => Report.extractImpression(row[10]),
-				:exam_date => DateTime.parse(row[6]))
+				:exam_date => DateTime.strptime(row[6],'%m/%d/%y %H:%M'))
 		end
 	end
 

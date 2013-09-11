@@ -18,7 +18,7 @@
       <tr>
         <td><%= link_to radiologist.name, radiologist_path(radiologist) %></td>
         <% ExamCode.all.each do |examcode| %>
-			<td> <%= Float(radiologist.positiveReportsByExamCode(examcode.id).length)/Float(radiologist.reports.where(:exam_code_id => examcode.id).length) %>%</td>
+			<td> <%= Float(radiologist.positiveReportsByExamCode(examcode.id).length)/Float(radiologist.reports.where(:exam_code_id => examcode.id).length)*100 %>%</td>
 			<td> <%= radiologist.reports.where(:exam_code_id => examcode.id).length %></td>
 		<% end %>
         <td></td>

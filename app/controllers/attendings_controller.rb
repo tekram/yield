@@ -2,7 +2,7 @@ class AttendingsController < ApplicationController
   # GET /attendings
   # GET /attendings.json
   def index
-    @attendings = Attending.all
+    @attendings = Attending.order(:created_at).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

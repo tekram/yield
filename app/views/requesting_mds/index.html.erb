@@ -17,8 +17,8 @@
       <tr>
         <td><%= link_to requesting_md.name, requesting_md_path(requesting_md) %></td>
         <% ExamCode.all.each do |examcode| %>
-			<td> <%= Float(requesting_md.positiveReportsByExamCode(examcode.id).length)/Float(requesting_md.reports.where(:exam_code_id => examcode.id).length)*100 %>%</td>
-			<td> <%= requesting_md.reports.where(:exam_code_id => examcode.id).length %></td>
+			<td> <%= requesting_md.score_cards.where(:exam_code_id => examcode.id)[0].score %> </td>
+			<td> <%= requesting_md.score_cards.where(:exam_code_id => examcode.id)[0].total %> </td>
 		<% end %>
         <td><%=  %></td>
         <td><%=  %></td>
@@ -30,3 +30,4 @@
   </tbody>
 </table>
 
+<%= paginate @requesting_mds %>

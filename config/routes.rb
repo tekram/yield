@@ -1,4 +1,10 @@
 Yield::Application.routes.draw do
+  resources :score_cards
+
+
+  resources :pycontextnlp_results
+
+
   resources :radiologists
 
 

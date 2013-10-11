@@ -1,0 +1,33 @@
+<h1>Listing pycontextnlp_results</h1>
+
+<table>
+  <tr>
+    <th>Report number</th>
+    <th>Run args</th>
+    <th>Schema</th>
+    <th>Target category</th>
+    <th>Classification</th>
+    <th>Most positive target</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pycontextnlp_results.each do |pycontextnlp_result| %>
+  <tr>
+    <td><%= pycontextnlp_result.report_number %></td>
+    <td><%= pycontextnlp_result.run_args %></td>
+    <td><%= pycontextnlp_result.schema %></td>
+    <td><%= pycontextnlp_result.target_category %></td>
+    <td><%= pycontextnlp_result.classification %></td>
+    <td><%= pycontextnlp_result.most_positive_target %></td>
+    <td><%= link_to 'Show', pycontextnlp_result %></td>
+    <td><%= link_to 'Edit', edit_pycontextnlp_result_path(pycontextnlp_result) %></td>
+    <td><%= link_to 'Destroy', pycontextnlp_result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pycontextnlp result', new_pycontextnlp_result_path %>

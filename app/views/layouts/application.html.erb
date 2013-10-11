@@ -76,8 +76,8 @@
               </ul>
               <% ExamCode.all.each do |examcode| %>
 				Name: <%= examcode.name %> <br/>
-				Positive: <%= examcode.positiveReports.length %> (<%= Float(examcode.positiveReports.length)/Float(examcode.reports.length)*100 %>%) <br />
-				Total <%= examcode.reports.length %>
+				Positive: <%= examcode.score %> <br />
+				Total <%= examcode.total %>
 			  <% end %>
             </div><!--/.well -->
           </div><!--/span-->

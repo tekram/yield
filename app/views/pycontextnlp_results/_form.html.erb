@@ -1,0 +1,41 @@
+<%= form_for(@pycontextnlp_result) do |f| %>
+  <% if @pycontextnlp_result.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pycontextnlp_result.errors.count, "error") %> prohibited this pycontextnlp_result from being saved:</h2>
+
+      <ul>
+      <% @pycontextnlp_result.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :report_number %><br />
+    <%= f.number_field :report_number %>
+  </div>
+  <div class="field">
+    <%= f.label :run_args %><br />
+    <%= f.number_field :run_args %>
+  </div>
+  <div class="field">
+    <%= f.label :schema %><br />
+    <%= f.number_field :schema %>
+  </div>
+  <div class="field">
+    <%= f.label :target_category %><br />
+    <%= f.text_area :target_category %>
+  </div>
+  <div class="field">
+    <%= f.label :classification %><br />
+    <%= f.number_field :classification %>
+  </div>
+  <div class="field">
+    <%= f.label :most_positive_target %><br />
+    <%= f.text_area :most_positive_target %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

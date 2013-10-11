@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Report number:</b>
+  <%= @pycontextnlp_result.report_number %>
+</p>
+
+<p>
+  <b>Run args:</b>
+  <%= @pycontextnlp_result.run_args %>
+</p>
+
+<p>
+  <b>Schema:</b>
+  <%= @pycontextnlp_result.schema %>
+</p>
+
+<p>
+  <b>Target category:</b>
+  <%= @pycontextnlp_result.target_category %>
+</p>
+
+<p>
+  <b>Classification:</b>
+  <%= @pycontextnlp_result.classification %>
+</p>
+
+<p>
+  <b>Most positive target:</b>
+  <%= @pycontextnlp_result.most_positive_target %>
+</p>
+
+
+<%= link_to 'Edit', edit_pycontextnlp_result_path(@pycontextnlp_result) %> |
+<%= link_to 'Back', pycontextnlp_results_path %>

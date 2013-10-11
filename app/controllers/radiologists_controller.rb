@@ -2,7 +2,7 @@ class RadiologistsController < ApplicationController
   # GET /radiologists
   # GET /radiologists.json
   def index
-    @radiologists = Radiologist.all
+    @radiologists = Radiologist.order(:created_at).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

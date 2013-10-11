@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  report_number: 1
+  run_args: 1
+  schema: 1
+  target_category: MyText
+  classification: 1
+  most_positive_target: MyText
+
+two:
+  report_number: 1
+  run_args: 1
+  schema: 1
+  target_category: MyText
+  classification: 1
+  most_positive_target: MyText

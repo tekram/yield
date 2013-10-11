@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  total: 1
+  score: 1
+  exam_code_id: 1
+  gradeable: 1
+  gradeable_type: MyString
+
+two:
+  total: 1
+  score: 1
+  exam_code_id: 1
+  gradeable: 1
+  gradeable_type: MyString

@@ -9,21 +9,22 @@ class Report < ActiveRecord::Base
 	belongs_to :requesting_md
 	belongs_to :radiologist
 	belongs_to :attending
+	has_many :pycontextnlp_results, :foreign_key => "report_number"
+	
+	def positivity
+		return self.pycontextnlp_results.where(:target_category => "pulmonary_embolism")[0]
+	end	
 	
 	def self.grade
 		Report.all.each{|report|
-			if report.impression.downcase.include?("no evidence of pulmonary embolism")
-				report.positivity = 0
-				report.save
-			else
-				report.positivity = 1
-				report.save
-			end
 		}
 	end
 	
 	def self.import()
 		CSV.foreach("ctpe.txt", {:col_sep => "|"}) do |row|
+			if row[10] == nil or row[10].split("IMPRESSION:")[1] == nil
+					next
+			end
 			attending = Attending.find_or_create_by_name(:name => row[8])
 			requesting_md = RequestingMd.find_or_create_by_name(:name => row[7])
 			radiologist = Radiologist.find_or_create_by_name(:name => row[9])
@@ -39,5 +40,12 @@ class Report < ActiveRecord::Base
 		return report.split("IMPRESSION:")[1].split("SUMMARY")[0]
 	end
 
+	def self.cleanUp
+		Report.all.each {|rep|
+				puts rep.id
+				rep.impression = rep.impression.gsub(/[\x80-\xff]/,"")
+				rep.save
+		}
+	end
 
 end

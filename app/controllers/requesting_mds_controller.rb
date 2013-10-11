@@ -2,7 +2,7 @@ class RequestingMdsController < ApplicationController
   # GET /requesting_mds
   # GET /requesting_mds.json
   def index
-    @requesting_mds = RequestingMd.all
+    @requesting_mds = RequestingMd.order(:created_at).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

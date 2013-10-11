@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.all
+    @reports = Report.order(:created_at).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

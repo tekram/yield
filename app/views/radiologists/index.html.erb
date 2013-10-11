@@ -18,8 +18,8 @@
       <tr>
         <td><%= link_to radiologist.name, radiologist_path(radiologist) %></td>
         <% ExamCode.all.each do |examcode| %>
-			<td> <%= Float(radiologist.positiveReportsByExamCode(examcode.id).length)/Float(radiologist.reports.where(:exam_code_id => examcode.id).length)*100 %>%</td>
-			<td> <%= radiologist.reports.where(:exam_code_id => examcode.id).length %></td>
+			<td> <%= radiologist.score_cards.where(:exam_code_id => examcode.id)[0].score %></td>
+			<td> <%= radiologist.score_cards.where(:exam_code_id => examcode.id)[0].total %></td>
 		<% end %>
         <td></td>
         <td><%= %></td>
@@ -29,3 +29,4 @@
   </tbody>
 </table>
 
+<%= paginate @radiologists %>

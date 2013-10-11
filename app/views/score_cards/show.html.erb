@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Total:</b>
+  <%= @score_card.total %>
+</p>
+
+<p>
+  <b>Score:</b>
+  <%= @score_card.score %>
+</p>
+
+<p>
+  <b>Exam code:</b>
+  <%= @score_card.exam_code_id %>
+</p>
+
+<p>
+  <b>Gradeable:</b>
+  <%= @score_card.gradeable %>
+</p>
+
+<p>
+  <b>Gradeable type:</b>
+  <%= @score_card.gradeable_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_score_card_path(@score_card) %> |
+<%= link_to 'Back', score_cards_path %>

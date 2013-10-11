@@ -17,11 +17,12 @@
       <tr>
         <td><%= link_to attending.name, attending_path(attending) %></td>
         <% ExamCode.all.each do |examcode| %>
-			<td> <%= Float(attending.positiveReportsByExamCode(examcode.id).length)/Float(attending.reports.where(:exam_code_id => examcode.id).length)*100 %>%</td>
-			<td> <%= attending.reports.where(:exam_code_id => examcode.id).length %></td>
+			<td> <%= attending.score_cards.where(:exam_code_id => examcode.id)[0].score %></td>
+			<td> <%= attending.score_cards.where(:exam_code_id => examcode.id)[0].total %></td>
 		<% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<%= paginate @attendings %>
